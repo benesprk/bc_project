@@ -1,2 +1,2 @@
 # bc_project
-bc project stuff
+bc project repo for showing updates
