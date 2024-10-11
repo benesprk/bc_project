@@ -5,7 +5,7 @@ def show_img(image_adress):
     rows = 2048
     cols = 2448
     
-    with open('images/test2.raw', 'rb') as file:
+    with open(image_adress, 'rb') as file:
         raw_data = file.read()
     
     image = np.frombuffer(raw_data, dtype=np.uint8)
@@ -13,4 +13,4 @@ def show_img(image_adress):
     
     plt.imshow(image, cmap='gray')
     plt.show()
-    return None
+    return image
