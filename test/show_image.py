@@ -11,6 +11,9 @@ def show_img(image_adress):
     image = np.frombuffer(raw_data, dtype=np.uint8)
     image = image.reshape((rows, cols))
     
+    plt.figure('Input RAW image')
     plt.imshow(image, cmap='gray')
+    plt.title('Input RAW image')
+    plt.axis('off')
     plt.show()
     return image
