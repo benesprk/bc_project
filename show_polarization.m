@@ -1,6 +1,6 @@
 if true
     row=2048;  col=2448;
-    fin=fopen('images/test3.raw','r');
+    fin=fopen('test/images/test2.raw','r');
     I=fread(fin,row*col,'uint8=>uint8'); 
     Z=reshape(I,col,row);
     Z=Z';
