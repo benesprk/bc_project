@@ -1,0 +1,103 @@
+\documentclass[a4paper]{article}
+
+\renewcommand{\contentsname}{Obsah} %rename ToC to Obsah
+
+%--------packages
+\usepackage{graphicx} % images
+\usepackage[hidelinks]{hyperref} %clickable images
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\title{Barevné polarizační zobrazování pro bioaplikace \\rešerše}
+\author{Prokop Beneš}
+\date{Prosinec 2024}
+
+\numberwithin{equation}{section}
+
+\begin{document}
+	\maketitle
+	\newpage
+
+	\tableofcontents
+	\newpage
+
+    \section{Úvod}
+    Barevné polarizační zobrazování představuje inovativní přístup k analýze optických vlastností materiálů,
+    který se stále více prosazuje v mnoha oborech a to i v medicínských tak i biologických aplikacích.
+    Využití polarizace světla umožňuje získávat informace o strukturálních a povrchových vlastnostech vzorků,
+    které jsou běžnými metodami prakticky nedostupné. 
+    \\Tato práce si klade za cíl teoreticky zpracovat problematiku barevného polarizačního zobrazování z
+    pohledu fyziky a prozkoumat jeho možnosti v biologických aplikacích, zejména při studiu rostlinných vzorků.
+    V této práci bude využita polarizační kamera BFS-U3-51S5PC-C s integrovaným senzorem Sony IMX250MYR,
+    přičemž se zaměříme na její schopnost snímat a kombinovat polarizační a barevná obrazová data.
+	\newpage
+	\section{Polarizace}
+    Elektromagnetické vlny mají velmi široký spektrální interval. My budeme uvažovat elektromagnetické vlnění
+    pro nás viditelné. Tento interval elektromagnetického vlnění se nachází v intervalu přibližně 380 - 720nm.
+    O elektromagnetickém vlnění v tomto intervalu budeme mluvit jako o světle. %tady chci mít odvození toho
+    %proc se deje to co se děje a jaktože to je příčný
+    \\Elektromagnetická postupná vlna je vlna příčná, což znamená, že elektrické a magnetické pole jsou kolmé
+    na směr šíření. To znamená, že existuje dva nezávislé směry pro vektory těchto polí, mluvíme o dvou
+    nezávislých My se zaměříme na popis elektrické složky vlny $\vec{E}$, protože vektor magnetické složky
+    $\vec{B}$ je určena vztahem $\vec{B}= \frac{1}{v}\vec{s}\times\vec{E}$, kde $\vec{s}$ je vektor udávající
+    směr šíření. Když zvolíme souřadný systém tak, že směr šíření je $\vec{s}=z$. Pak můžeme jako bázi příčné
+    roviny, ve které se nachází $\vec{E}$, použít osy $x$ a $y$. Obecný vektor elektrického pole pak lze
+    rozložit na složky směřující podél souřadných os.
+    \begin{equation} \label{eq:1}
+        \vec{E} = E_x\vec{x} + E_y\vec{y}
+    \end{equation}
+    Pokud budeme uvažovat harmonické postupné vlny, můžeme díky principu superpozice zvolit vlnu s různou
+    amplitudou a s různým fázovým posunem:
+    \begin{equation} \label{eq:2}
+        \vec{E}(\vec{r},t) = E_{x0} e^{i(\omega t - kz + \varphi_1)} \vec{x} + 
+                             E_{y0} e^{i(\omega t - kz + \varphi_2)} \vec{y}
+    \end{equation}
+    Fázový rozdíl těchto dvou složek můžeme vyjádřit jako 
+    \begin{equation} \label{eq:3}
+        \delta \varphi = (\omega t -kz + \varphi_1) - (\omega t -kz + \varphi_2) = \varphi_1 - \varphi_2
+    \end{equation}
+    ten nezávisí ani na čase ani na poloze v prostoru. Zvolíme si libovolné místo v prostoru jako
+    $z = z_0$, můžeme sledovat časový průběh elektrického pole $\vec{E}(t) = \vec{E}(z_0,t)$
+    \begin{equation} \label{eq:4}
+        \vec{E}(t) = E_{x0} \vec{x} e^{i(\omega t + \varphi_1')} + E_{y0} \vec{y} e^{i(\omega t + \varphi_2')}
+    \end{equation}
+    kde $\varphi_i' = \varphi - kz_0$. Znovu tedy platí to samé pro rozdíl fází
+    \begin{equation} \label{eq:5}
+        \delta \varphi = \varphi_1 - \varphi_2 = \varphi_1' - \varphi_2' = (\varphi_1 - kz_0) - (\varphi_2 - kz_0)
+    \end{equation}
+    Z toho tedy vyplývá, že pro fázový rozdíl není důležité, ve kterém místě budeme průběh elektrického pole
+    sledovat. Není třeba se zaobírat konrétními hodnotami fází, rozlišujeme pouze jejich rozdíl $\delta \varphi$.
+    Reálná část rovnice (\ref{eq:4}) má tvar:
+    \begin{equation} \label{eq:6}
+        \vec{E}(t) = E_{x0}\vec{x}\cos(\omega t + \varphi_1) + E_{y0}\vec{y}\cos(\omega t + \varphi_2)
+    \end{equation}
+    je parametrickou rovnicí elipsy. Vektor elektrického pole $\vec{E}$ tedy v daném místě opisuje křivku,
+    která má tvar elipsy. Tato elektromagnetická vlna je tedy elipticky polarizovaná. 
+    \\Vlny tvaru (\ref{eq:4}), můžeme psát pomocí komplexního vektoru o dvou složkách $\hat{\vec{E}} \in \mathbb{C}^2$, 
+    \begin{equation}
+        \vec{E}(z,t) = \big(E_{x0} e^{i\varphi_1} \vec{x} + E_{y0} e^{i\varphi_2} \vec{y} \big)  e^{i(\omega t - kz)} = \hat{\vec{E}} e^{i(\omega t-kz)}
+    \end{equation}
+    \begin{equation}
+        \hat{\vec{E}} = \begin{pmatrix} \hat{E}_1 \\ \hat{E}_2 \end{pmatrix} = \begin{pmatrix} E_{x0} \, e^{i \varphi_1} \\ E_{y0} \, e^{i \varphi_2} \end{pmatrix}	 \in \mathbb{C}^2
+    \end{equation}
+    \\Jeden pro nás velmi důležitý speciální případ je vlna, která je lineárně polarizovaná. Ta nastává,
+    pokud vektor elektrické intenzity $\vec{E}$ kmitá jednom daném směru. 
+    \\Tento případ nastává pro fázový posun $\delta \varphi \in \{0,\pi\}$, což pak můžeme zapsat jako
+    \begin{equation} \label{eq:7}
+        \vec{E} = E_0 \vec{n} e^{i(\omega t + \varphi]}
+    \end{equation}
+    neboli 
+    \begin{equation}
+        \hat{\vec{E}} = E_0 \, \vec{n} \, e^{i\varphi} = E_0 \begin{pmatrix} \cos \theta \\ \sin \theta \end{pmatrix} e^{i\varphi}
+    \end{equation}
+    kde jednotkový vektor $\vec{n} = (n_x,n_y) = (\cos \theta, \sin \theta)$ znázorňuje směr kmitání
+    elektrického pole $\vec{E}(t)$ v rovině $xy$ a úhel $\theta$ značí odklon tohoto vektoru od osy $x$.
+    \\Takto lineárně polarizované světlo pro nás bude v následujícím textu velmi důležité.
+
+
+    \newpage
+	\section{Aplikace Polarizace}
+	
+	% \newpage
+	% \section{}
+\end{document}

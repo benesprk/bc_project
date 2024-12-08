@@ -1,4 +1,4 @@
-def show_img(image_adress):
+def show_img(image_adress, plot ):
     import numpy as np
     import matplotlib.pyplot as plt
     
@@ -11,9 +11,10 @@ def show_img(image_adress):
     image = np.frombuffer(raw_data, dtype=np.uint8)
     image = image.reshape((rows, cols))
     
-    plt.figure('Input RAW image')
-    plt.imshow(image, cmap='gray')
-    plt.title('Input RAW image')
-    plt.axis('off')
-    plt.show()
+    if plot:
+        plt.figure('Input RAW image')
+        plt.imshow(image, cmap='gray')
+        plt.title('Input RAW image')
+        plt.axis('off')
+        plt.show()
     return image
