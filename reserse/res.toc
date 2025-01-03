@@ -1,3 +1,5 @@
 \contentsline {section}{\numberline {1}Úvod}{3}{section.1}%
 \contentsline {section}{\numberline {2}Polarizace}{4}{section.2}%
-\contentsline {section}{\numberline {3}Aplikace Polarizace}{6}{section.3}%
+\contentsline {section}{\numberline {3}Aplikace Polarizace}{7}{section.3}%
+\contentsline {section}{\numberline {4}Získání dat z polarizační kamery}{8}{section.4}%
+\contentsline {section}{Literatura}{9}{section.4}%
