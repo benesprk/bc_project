@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.3)  3 JAN 2025 19:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.3)  20 JAN 2025 12:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -248,60 +248,82 @@ Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 \l_MT_below_shortintertext_sep=\dimen165
 \xmathstrut@box=\box54
 \xmathstrut@dim=\dimen166
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2024/11/30 v24.14 The multilingual framework for pdfLaTeX, LuaLaTeX and XeLaTeX
+\babel@savecnt=\count298
+\U@D=\dimen167
+\l@unhyphenated=\language89
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count299
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/babel-czech/czech.ldf
+Language: czech 2008/07/06 v3.1a Czech support from the babel system
+Package babel Info: Making " an active character on input line 172.
+\cs@wordlen=\count300
+Package babel Info: Making - an active character on input line 226.
+)) (/usr/local/texlive/2024/texmf-dist/tex/generic/babel/locale/cs/babel-czech.tex
+Package babel Info: Importing font and identification data for czech
+(babel)             from babel-cs.ini. Reported on input line 11.
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count298
+\l__color_backend_stack_int=\count301
 \l__pdf_internal_box=\box55
 ) (./res.aux)
 \openout1 = `res.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
  (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count299
-\scratchdimen=\dimen167
+\scratchcounter=\count302
+\scratchdimen=\dimen168
 \scratchbox=\box56
-\nofMPsegments=\count300
-\nofMParguments=\count301
+\nofMPsegments=\count303
+\nofMParguments=\count304
 \everyMPshowfont=\toks23
-\MPscratchCnt=\count302
-\MPscratchDim=\dimen168
-\MPnumerator=\count303
-\makeMPintoPDFobject=\count304
+\MPscratchCnt=\count305
+\MPscratchDim=\dimen169
+\MPnumerator=\count306
+\makeMPintoPDFobject=\count307
 \everyMPtoPDFconversion=\toks24
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/grfext/grfext.sty
+Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 504.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 20.
+Package hyperref Info: Link coloring OFF on input line 24.
  (./res.out) (./res.out)
 \@outlinefile=\write3
 \openout3 = `res.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 22.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 26.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 22.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 26.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -315,82 +337,154 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 [2]
-Overfull \hbox (11.77855pt too wide) in paragraph at lines 28--36
-\OT1/cmr/m/n/10 Barevn^^Se po-lar-iza^^Tcn^^S^^P zo-bra-zov^^San^^S^^P p^^Tredstavuje in-o-va-tivn^^S^^P p^^Tr^^S^^Pstup k anal^^Syze optick^^Sych
- []
-
-
 
 [3]
 
 [4]
-<figures/Brewster.png, id=81, 803.0pt x 700.6175pt>
+<figures/Brewster.png, id=90, 803.0pt x 700.6175pt>
 File: figures/Brewster.png Graphic file (type png)
 <use figures/Brewster.png>
-Package pdftex.def Info: figures/Brewster.png  used on input line 110.
+Package pdftex.def Info: figures/Brewster.png  used on input line 92.
 (pdftex.def)             Requested size: 199.16928pt x 173.77486pt.
 
 
 [5 <./figures/Brewster.png>]
 
 [6]
-<figures/senzor.jpg, id=102, 602.25pt x 230.8625pt>
+<figures/senzor.jpg, id=111, 602.25pt x 230.8625pt>
 File: figures/senzor.jpg Graphic file (type jpg)
 <use figures/senzor.jpg>
-Package pdftex.def Info: figures/senzor.jpg  used on input line 148.
+Package pdftex.def Info: figures/senzor.jpg  used on input line 122.
 (pdftex.def)             Requested size: 227.62204pt x 87.2566pt.
 
 
 [7 <./figures/senzor.jpg>]
+Overfull \hbox (5.36176pt too wide) in paragraph at lines 133--134
+[]\OT1/cmr/m/n/10 Dal^^Ts^^S^^P zaj^^S^^Pmav^^Se vyu^^Tzit^^S^^P po-la-riza^^Tcn^^S^^Pho sn^^S^^Pm^^San^^S^^P bude m^^Te^^Tren^^S^^P kon-cen-t-rac^^S^^P r^^Wuzn^^Sych
+ []
+
+
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 161--162
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
+[]\OT1/cmr/m/it/10 Polarized li-ght ima-ging in bi-o-me-di-cine: emer-ging Mu-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
+\OT1/cmr/m/it/10 eller ma-t-rix me-tho-do-lo-gies for bulk tis-sue as-sess-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
+\OT1/cmr/m/it/10 ment []$\OT1/cmtt/m/n/10 https : / / www . spiedigitallibrary . org / journals /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
+\OT1/cmtt/m/n/10 journal-[]of-[]biomedical-[]optics / volume-[]20 / issue-[]6 / 061104 /
+ []
+
+
+Overfull \hbox (89.55203pt too wide) in paragraph at lines 139--140
+\OT1/cmtt/m/n/10 Polarized-[]light-[]imaging-[]in-[]biomedicine-[]-[]emerging-[]Mueller-[]matrix-[]methodologies /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
+[]\OT1/cmr/m/it/10 Polarization-Based Ima-ging: Ba-sics and Be-ne-fits []$\OT1/cmtt/m/n/10 https : / / www .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
+\OT1/cmtt/m/n/10 photonics . com / Articles / Polarization-[]Based _ Imaging _ Basics _
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--142
 [][]$\OT1/cmtt/m/n/10 https : / / www . flir . eu / globalassets / support / iis / knowledge-[]base /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
 [][]$\OT1/cmtt/m/n/10 https : / / www . teledynevisionsolutions . com /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
 \OT1/cmtt/m/n/10 learn / learning-[]center / machine-[]vision /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--164
-[][]$\OT1/cmtt/m/n/10 https : / / www . photonics . com / Articles / Polarization-[]Based _
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 164--165
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
 [][]$\OT1/cmtt/m/n/10 https : / / www . sony-[]semicon . com / files / 62 / flyer _ industry / IMX250 _
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 147--148
+[][]$\OT1/cmtt/m/n/10 https : / / opg . optica . org / ao / fulltext . cfm ? uri = ao-[]61-[]6-[]C37 & id =
+ []
 
-[9] (./res.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 149--150
+[][]$\OT1/cmtt/m/n/10 https : / / www . mathworks . com / matlabcentral / fileexchange /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
+[][]$\OT1/cmtt/m/n/10 https : / / ieeexplore . ieee . org / stamp / stamp . jsp ? tp = &arnumber =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
+[][]$\OT1/cmtt/m/n/10 https : / / www . sony-[]semicon . com / en / technology / industry /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--154
+[][]$\OT1/cmtt/m/n/10 https : / / www . sony-[]semicon . com / en / technology / industry /
+ []
+
+
+Overfull \hbox (98.05194pt too wide) in paragraph at lines 154--155
+[][]$\OT1/cmtt/m/n/10 https : / / thinklucid . com / tech-[]briefs / polarization-[]explained-[]sony-[]polarized-[]sensor/$[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
+[][]$\OT1/cmtt/m/n/10 https : / / www . biorxiv . org / content / 10 . 1101 / 2020 . 08 . 16 . 252718v1 .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--157
+[][]$\OT1/cmtt/m/n/10 https : / / thinklucid . com / polarized-[]camera-[]resource-[]center /
+ []
+
+
+
+[9]
+
+[10] (./res.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-11-02>
  ***********
 Package rerunfilecheck Info: File `res.out' has not changed.
-(rerunfilecheck)             Checksum: DE004A15F35ED069E6BA71AE936F46A9;623.
+(rerunfilecheck)             Checksum: 0AE0D9A3CE0E855C3C3603F90A7AF260;786.
  ) 
 Here is how much of TeX's memory you used:
- 9972 strings out of 473330
- 155183 string characters out of 5719769
- 566630 words of memory out of 5000000
- 32949 multiletter control sequences out of 15000+600000
- 566139 words of font info for 68 fonts, out of 8000000 for 9000
+ 11191 strings out of 473330
+ 176970 string characters out of 5719769
+ 600808 words of memory out of 5000000
+ 34134 multiletter control sequences out of 15000+600000
+ 566446 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,8n,79p,303b,447s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,8n,79p,1870b,460s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on res.pdf (9 pages, 278936 bytes).
+Output written on res.pdf (10 pages, 293361 bytes).
 PDF statistics:
- 210 PDF objects out of 1000 (max. 8388607)
- 162 compressed objects within 2 object streams
- 38 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 270 PDF objects out of 1000 (max. 8388607)
+ 220 compressed objects within 3 object streams
+ 52 named destinations out of 1000 (max. 500000)
+ 59 words of extra memory for PDF output out of 10000 (max. 10000000)
 
