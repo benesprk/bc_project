@@ -3,5 +3,6 @@
 \contentsline {section}{\numberline {2}Polarizace}{4}{section.2}%
 \contentsline {section}{\numberline {3}Aplikace Polarizace}{7}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Senzor Sony IMX250MYR}{7}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Využití polarizace ve výzkumu}{7}{subsection.3.2}%
-\contentsline {section}{Literatura}{9}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}Využití polarizace ve výzkumu}{8}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Závěr}{9}{subsection.3.3}%
+\contentsline {section}{Literatura}{10}{subsection.3.3}%
