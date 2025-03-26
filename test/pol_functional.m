@@ -1,20 +1,26 @@
-function Z = load_image(address, show)
+function Z = load_image(show, output_path, input_file, save)
+    [~, baseFilename, ~] = fileparts(input_file);
+
     % load image with given dimensions
     row=2048;  col=2448;
-    fin=fopen(address,'r');
+    fin=fopen(input_file,'r');
     I=fread(fin,row*col,'uint8=>uint8'); 
     Z=reshape(I,col,row);
     Z=Z';
         if show == true 
             figure
             imshow(Z);
-            title("Input RAW image")
+            ax = gca;
+            % title("Input RAW image")
+        end
+        if save == 1 %change to flase to stop saving
+            exportgraphics(ax, fullfile(output_path, [baseFilename '_raw.png']), 'Resolution', 400);
         end
     end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [DoLP, AoLP] = calculate_polarizatiion(Z)
+function [DoLP, AoLP] = calculate_polarization(Z)
     % Extract four polarization orientations from image
     pol_90 = Z(1:2:end, 1:2:end);  % Top-left pixels
     pol_45 = Z(1:2:end, 2:2:end);  % Top-right pixels
@@ -35,7 +41,7 @@ function [DoLP, AoLP] = calculate_polarizatiion(Z)
     
     % Process each color channel
     for c = 1:channels
-        % intensities for each polarization angle (need to be double to
+        % intensities for each polarization angle (need to be type double to
         % work in sqrt function)
         I_0 = double(color_0(:,:,c));
         I_90 = double(color_90(:,:,c));
@@ -55,27 +61,30 @@ function [DoLP, AoLP] = calculate_polarizatiion(Z)
     end
 end
 
-function visualize_polarization(DoLP, AoLP)
+function visualize_polarization(DoLP, AoLP, output_path, input_file, save)
     % Create HSV image where:
     % - Hue represents AoLP (scaled to account for π periodicity)
     % - Saturation set to 1
     % - Value is set to 1
+
+    [~, baseFilename, ~] = fileparts(input_file);
     
     [height, width, channels] = size(DoLP);
     
     % Add a combined AoLP visualization if desired
-    figure('Name', 'Combined DoLP and Mean AoLP');
+    fig = figure('Name', 'Combined DoLP and Mean AoLP', 'Visible','on');
     
     % Subplot for mean DoLP across all channels
-    subplot(1, 2, 1);
+    ax1 = subplot(1, 2, 1);
     meanDoLP = mean(DoLP, 3);
     imshow(meanDoLP);
     colormap(gca, jet);
     colorbar;
-    title('Mean DoLP Across All Channels');
-    
+    % title('Mean DoLP Across All Channels');
+    title('DoLP Across Channels');
+
     % Subplot for mean AoLP with DoLP-weighted color intensity
-    subplot(1, 2, 2);
+    ax2 = subplot(1, 2, 2);
 
     x_total = zeros(height, width);
     y_total = zeros(height, width);
@@ -110,6 +119,14 @@ function visualize_polarization(DoLP, AoLP)
     
     % Add colorwheel
     polarization_colorwheel(gca);
+
+    % save the images separately
+    if save == 1 %change to false to stop saving
+        exportgraphics(ax1, fullfile(output_path, [baseFilename '_dolp.png']), 'Resolution', 400);
+        exportgraphics(ax2, fullfile(output_path, [baseFilename '_aolp.png']), 'Resolution', 400);
+
+        exportgraphics(fig, fullfile(output_path, [baseFilename '_combined.png']), 'Resolution', 400);
+    end
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -169,42 +186,58 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function demosaic_polarization_image(Z)
+function demosaic_polarization_image(Z,output_path, input_file, save)
+[~, baseFilename, ~] = fileparts(input_file);
+
+
 % Extract polarization images directly
 proc1 = Z(1:2:end, 1:2:end);     % 90° (top-left pixels)
 proc2 = Z(1:2:end, 2:2:end);     % 45° (top-right pixels)
 proc3 = Z(2:2:end, 1:2:end);     % 135° (bottom-left pixels)
 proc4 = Z(2:2:end, 2:2:end);     % 0° (bottom-right pixels)
 
-figure("Name", "Polarization Images")
+fig = figure("Name", "Polarization Images");
 
-subplot(221)
+ax1 = subplot(221);
 imshow(demosaic(uint8(proc1), 'rggb'), []);
 title("90°")
 
-subplot(222)
+ax2 = subplot(222);
 imshow(demosaic(uint8(proc2), 'rggb'), []);
 title("45°")
 
-subplot(223)
+ax3 = subplot(223);
 imshow(demosaic(uint8(proc3), 'rggb'), []);
 title("135°")
 
-subplot(224)
+ax4 = subplot(224);
 imshow(demosaic(uint8(proc4), 'rggb'), []);
 title("0°")
+
+    if save == 1 %change to stop saving
+        exportgraphics(ax1, fullfile(output_path, [baseFilename '_90.png']), 'Resolution', 400);
+        exportgraphics(ax2, fullfile(output_path, [baseFilename '_45.png']), 'Resolution', 400);
+        exportgraphics(ax3, fullfile(output_path, [baseFilename '_135.png']), 'Resolution', 400);
+        exportgraphics(ax4, fullfile(output_path, [baseFilename '_0.png']), 'Resolution', 400);
+
+        exportgraphics(fig, fullfile(output_path, [baseFilename '_all.png']), 'Resolution', 400);
+    end
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function pol_proc()
-    show = 0; %change if you want to see the RAW image and the separate polarization images
-    Z = load_image('images/pol/valec45.raw', show);
-    [DoLP, AoLP] = calculate_polarizatiion(Z);
+    show = 1; %change to 1 if you want to see the RAW image and the separate polarization images
+    save = 0; %chage to save or not to save
+    input_file = '../images/old/display.raw';
+    output_path = 'output_images';
+
+    Z = load_image(show, output_path, input_file, save); %change as needed
+    [DoLP, AoLP] = calculate_polarization(Z);
     if show == 1
-        demosaic_polarization_image(Z);
+        demosaic_polarization_image(Z,output_path, input_file, save);
     end
-    visualize_polarization(DoLP, AoLP);
+    visualize_polarization(DoLP, AoLP, output_path, input_file, save);
 end
 
 pol_proc;
