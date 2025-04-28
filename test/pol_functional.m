@@ -198,7 +198,7 @@ proc4 = Z(2:2:end, 2:2:end);     % 0° (bottom-right pixels)
 
 if (save == 1) && (show == 1)
     fig = figure("Name", "Polarization Images", 'Visible','on');
-elseif show == 1
+elseif (show == 1) && (save==0)
     fig = figure("Name", "Polarization Images", 'Visible','on');
 elseif (save == 1 ) && (show == 0)
     fig = figure("Name", "Polarization Images", 'Visible','off');
@@ -233,17 +233,18 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 function pol_proc()
-    show = 0; %change to 1 if you want to see the RAW image and the separate polarization images
+    show = 1; %change to 1 if you want to see the RAW image and the separate polarization images
     save = 1; %chage to save or not to save
-    input_file = '../images/old/display.raw';
-    output_path = 'output_images/display/';
+    input_file = '../images/test/krystal4.raw';
+    output_path = './output_images/krystal4/';
     if ~exist(output_path, 'dir')
         mkdir(output_path);
     end
 
     Z = load_image(show, output_path, input_file, save); %change as needed
-    [DoLP, AoLP] = calculate_polarization(Z);
     demosaic_polarization_image(Z,output_path, input_file, save, show);
+    pause(0.1)
+    [DoLP, AoLP] = calculate_polarization(Z);
     visualize_polarization(DoLP, AoLP, output_path, input_file, save);
 end
 
