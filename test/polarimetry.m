@@ -296,7 +296,7 @@ they want to save/ show the figures or both, input file to process, output
 path where the potentionally saved images will be found and angle range
 that user wants displayed
 %}
-function pol_proc()
+function main()
     show = 1; %change to 1 if you want to see the RAW image and the separate polarization images
     save = 0; %change to save or not to save
 
@@ -319,4 +319,4 @@ function pol_proc()
     visualize_polarization(DoLP, AoLP, input_file, output_path, angle_min, angle_max, show, save);
 end
 
-pol_proc;
+main;
