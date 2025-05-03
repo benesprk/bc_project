@@ -105,7 +105,7 @@ always set to 1, Value is set to 0 outside the angle range
 @save - 1=save, 0=don't save
 %}
 
-function visualize_polarization(DoLP, AoLP, input_file, output_path, angle_min, angle_max, show, save_aolp_dolp)
+function visualize_polarization(DoLP, AoLP, input_file, output_path, angle_min, angle_max, show_ad, save_ad)
     angle_min = angle_min * (pi/180);
     angle_max = angle_max * (pi/180);
 
@@ -113,7 +113,7 @@ function visualize_polarization(DoLP, AoLP, input_file, output_path, angle_min, 
     [height, width, channels] = size(DoLP);
     
     %DoLP figure
-    if show == 0
+    if show_ad == 0
         dolp_fig = figure('Name', 'Mean DoLP', 'Visible', 'off');
     else
         dolp_fig = figure('Name', 'Mean DoLP', 'Visible', 'on');
@@ -124,7 +124,7 @@ function visualize_polarization(DoLP, AoLP, input_file, output_path, angle_min, 
     colorbar;
     
     % AoLP figure
-    if show == 0
+    if show_ad == 0
         aolp_fig = figure('Name', 'Mean AoLP', 'Visible', 'off');
     else
         aolp_fig = figure('Name', 'Mean AoLP', 'Visible', 'on');
@@ -182,7 +182,7 @@ function visualize_polarization(DoLP, AoLP, input_file, output_path, angle_min, 
     % modify colorbar for angle referencing
     polarization_colorbar(aolp_ax, angle_min, angle_max, angle_range);
     
-    if save_aolp_dolp == 1
+    if save_ad == 1
         exportgraphics(dolp_fig, fullfile(output_path, [baseFilename '_dolp.png']), 'Resolution', 400);
         exportgraphics(aolp_fig, fullfile(output_path, [baseFilename '_aolp.png']), 'Resolution', 400);
     end
@@ -297,9 +297,10 @@ path where the potentionally saved images will be found and angle range
 that user wants displayed
 %}
 function main()
-    show = 1; %change to 1 if you want to see the RAW image and the separate polarization images
+    show = 0; %change to 1 if you want to see the RAW image and the separate polarization images
     save = 0; %change to save or not to save only the polarization images
-    save_aolp_dolp = 1; %change to save polarimetry images (AoLP and DoLP)
+    show_ad = 1; % show only polarimetry images (AoLP and DoLP)
+    save_ad = 1; % save only polarimetry images (AoLP and DoLP)
 
     %change path to file accordingly
     input_file = '../images/test2/voda.raw';
@@ -317,7 +318,7 @@ function main()
     demosaic_polarization_image(Z, input_file, output_path, show, save);
     pause(0.2)
     [DoLP, AoLP] = calculate_polarization(Z);
-    visualize_polarization(DoLP, AoLP, input_file, output_path, angle_min, angle_max, show, save_aolp_dolp);
+    visualize_polarization(DoLP, AoLP, input_file, output_path, angle_min, angle_max, show_ad, save_ad);
 end
 
 main;
