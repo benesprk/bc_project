@@ -105,7 +105,7 @@ always set to 1, Value is set to 0 outside the angle range
 @save - 1=save, 0=don't save
 %}
 
-function visualize_polarization(DoLP, AoLP, input_file, output_path, angle_min, angle_max, show, save)
+function visualize_polarization(DoLP, AoLP, input_file, output_path, angle_min, angle_max, show, save_aolp_dolp)
     angle_min = angle_min * (pi/180);
     angle_max = angle_max * (pi/180);
 
@@ -182,7 +182,7 @@ function visualize_polarization(DoLP, AoLP, input_file, output_path, angle_min, 
     % modify colorbar for angle referencing
     polarization_colorbar(aolp_ax, angle_min, angle_max, angle_range);
     
-    if save == 1
+    if save_aolp_dolp == 1
         exportgraphics(dolp_fig, fullfile(output_path, [baseFilename '_dolp.png']), 'Resolution', 400);
         exportgraphics(aolp_fig, fullfile(output_path, [baseFilename '_aolp.png']), 'Resolution', 400);
     end
@@ -298,15 +298,16 @@ that user wants displayed
 %}
 function main()
     show = 1; %change to 1 if you want to see the RAW image and the separate polarization images
-    save = 0; %change to save or not to save
+    save = 0; %change to save or not to save only the polarization images
+    save_aolp_dolp = 1; %change to save polarimetry images (AoLP and DoLP)
 
     %change path to file accordingly
-    input_file = '../images/test2/gluk4.raw';
-    output_path = '../output_images/test2/gluk4/';
+    input_file = '../images/test2/voda.raw';
+    output_path = '../output_images/test2/voda/';
     
     %min and max angle (degrees)
     angle_min = 0; 
-    angle_max = 180;
+    angle_max = 180; % max 180
 
     if ~exist(output_path, 'dir')
         mkdir(output_path);
@@ -316,7 +317,7 @@ function main()
     demosaic_polarization_image(Z, input_file, output_path, show, save);
     pause(0.2)
     [DoLP, AoLP] = calculate_polarization(Z);
-    visualize_polarization(DoLP, AoLP, input_file, output_path, angle_min, angle_max, show, save);
+    visualize_polarization(DoLP, AoLP, input_file, output_path, angle_min, angle_max, show, save_aolp_dolp);
 end
 
 main;
