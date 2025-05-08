@@ -1,7 +1,8 @@
 %{
 load_image - serves the purpose of loading the image in a usable format for
 further processing (uint8). works only for specified dimensions as that is 
-the format of the sensor used in our camera.
+the format of the sensor used in our camera. Incorporates substraction of
+Dark for calibration
 
 @input_file - is path to file specified for processing
 @output_path - path for data exporting
@@ -11,13 +12,22 @@ the format of the sensor used in our camera.
 
 function Z = load_image(input_file, output_path, show, save)
     [~, baseFilename, ~] = fileparts(input_file);
+    row = 2048;  col = 2448;
+
+    % load dark for calibration
+    dark_path = fopen("dark.raw","r");
+    D = fread(dark_path, row * col, 'uint8=>uint8');
+    Dark = reshape(D, col, row);
+    Dark = Dark';
 
     % load image with given dimensions
-    row=2048;  col=2448;
-    fin=fopen(input_file,'r');
-    I=fread(fin,row*col,'uint8=>uint8'); 
-    Z=reshape(I,col,row);
-    Z=Z';
+    
+    file_in = fopen(input_file, 'r');
+    I = fread(file_in, row * col, 'uint8=>uint8'); 
+    Z = reshape(I, col, row);
+    Z = Z';
+
+    Z = Z - Dark;
         if show == true 
             figure('Visible','on')
             imshow(Z);
@@ -174,10 +184,6 @@ function visualize_polarization(DoLP, AoLP, input_file, output_path, angle_min, 
     
     rgb_img = hsv2rgb(hsv_img);
     imshow(rgb_img, 'Parent', aolp_ax);
-
-    angle_min_deg = round(angle_min * (180/pi));
-    angle_max_deg = round(angle_max * (180/pi));
-    title(aolp_ax, sprintf('AoLP: %d° to %d°', angle_min_deg, angle_max_deg));
     
     % modify colorbar for angle referencing
     polarization_colorbar(aolp_ax, angle_min, angle_max, angle_range);
@@ -228,11 +234,11 @@ function polarization_colorbar(parent_ax, angle_min, angle_max, angle_range)
     % linearly spaced tick marks
     num_ticks = 10;
     tick_angles = linspace(angle_min, angle_max, num_ticks);
-    tick_degrees = round(tick_angles * (180/pi));
+    tick_degrees = round(tick_angles * (180/pi),2,"decimals");
     
     % print the tick marks and labels
     cb.Ticks = tick_angles;
-    cb.TickLabels = arrayfun(@(x) sprintf('%d°', x), tick_degrees, 'UniformOutput', false);
+    cb.TickLabels = arrayfun(@(x) sprintf('%g°', x), tick_degrees, 'UniformOutput', false);
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -299,14 +305,15 @@ path where the potentionally saved images will be found and angle range
 that user wants displayed
 %}
 function main()
-    show = 0; %change to 1 if you want to see the RAW image and the separate polarization images
-    save = 0; %change to save or not to save only the polarization images
+    show = 1; %change to 1 if you want to see the RAW image and the separate polarization images
+    save = 1; %change to save or not to save only the polarization images
     show_aolp = 1; % show only polarimetry (AoLP) image
-    save_aolp = 1; % save only polarimetry (AoLP) image
+    save_aolp = 0; % save only polarimetry (AoLP) image
 
     %change path to file accordingly
-    input_file = '../images/test2/voda.raw';
-    output_path = '../output_images/test2/voda/';
+    input_file = '../images/roztoky/laser.raw';
+    output_path = '../output_images/roztoky/laser/'; % for all images
+    % output_path = '../output_images/roztoky/aolp_calcite/'; % only aolp
     
     %min and max angle (degrees)
     angle_min = 0; 
